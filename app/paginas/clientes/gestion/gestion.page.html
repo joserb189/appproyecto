@@ -1,0 +1,55 @@
+<app-encabezado [titulo]="titulo"></app-encabezado>
+
+<ion-content class="ion-padding">
+<ion-list-header>
+  <ion-label>Gestion de cliente</ion-label>
+</ion-list-header>
+<form #formulario="ngForm" (ngSubmit)="guardar()">
+<ion-item>
+  <ion-label position="floating">Nombre</ion-label>
+  <ion-input type="text"
+              [(ngModel)] ="cliente.nombre"
+              name="nombre"
+              placeholder="Nombre"
+              minlength="3"
+              maxlength="75"
+              required></ion-input>
+              
+</ion-item>
+<ion-item>
+<ion-label position="floating">apellidos</ion-label>
+  <ion-input type="text" 
+             [(ngModel)] ="cliente.apellido"
+             name="apellido"
+             placeholder="apellidos"
+             minlength="3"
+             maxlength="75"
+             required></ion-input>
+</ion-item>
+<ion-item>
+<ion-label position="floating">Telefono</ion-label>
+  <ion-input type="number" 
+             [(ngModel)] ="cliente.telefono"
+             name="telefono"
+             placeholder="telefono"
+             minlength="3"
+             maxlength="8"
+             required></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Correo</ion-label>
+    <ion-input type="email" 
+               [(ngModel)] ="cliente.correo"
+               name="correo"
+               placeholder="Correo Electronico"
+               pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+               minlength="3"
+               maxlength="75"
+               required></ion-input>
+  </ion-item>
+  <br><br>
+  <ion-button type="submit" expand="block" shape="round" [disabled]="formulario.invalid">
+    Aceptar
+  </ion-button>
+</form>
+</ion-content>
